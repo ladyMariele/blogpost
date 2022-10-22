@@ -17,13 +17,18 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res) {
-  res.render("home");
+  // renders two parameters; ejs file and a javascript object {key:value} pair, `key` has to match the value in `home.ejs`, and the `value` is the data that is passed over
+  res.render("home", {homeStarting: homeStartingContent});
 });
 
 
+app.get("/about", function(req, res) {
+  res.render("about", {about: aboutContent});
+});
 
-
-
+app.get("/contact", function(req, res) {
+  res.render("contact", {contact: contactContent});
+});
 
 
 
